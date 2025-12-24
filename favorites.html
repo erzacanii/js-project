@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorites | OZAFLIX</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-200">
+
+  <!-- Header -->
+  <header class="bg-green-800 text-white">
+    <nav class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+     
+     <!--Logo-->
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="./assets/img/ozaflix-logo.png" alt="OZAFLIX" class="w-22 h-20 rounded">
+      <span class="text-l font-bold text-red-500">OZAFLIX</span>
+    </a>
+      <ul class="hidden md:flex gap-6 text-sm">
+        <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
+        <li><a href="movies.html" class="hover:text-gray-300">Movies</a></li>
+        <li><a href="favorites.html" class="hover:text-gray-300">Favorites</a></li>
+        <li><a href="watchlist.html" class="hover:text-gray-300">Watchlist</a></li>
+        <li><a href="ai.html" class="hover:text-gray-300">AI</a></li>
+      </ul>
+      <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+    </nav>
+    <div id="mobileMenu" class="hidden md:hidden bg-black border-t border-gray-700">
+      <ul class="flex flex-col p-4 gap-4 text-sm">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+        <li><a href="watchlist.html">Watchlist</a></li>
+        <li><a href="ai.html">AI</a></li>
+
+              <!-- LOGIN / REGISTER -->
+      <li><a href="login.html" class="px-3 py-1 bg-yellow-500 rounded text-black">Login</a></li>
+      <li><a href="register.html" class="px-3 py-1 bg-blue-500 rounded text-white">Register</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="p-4 max-w-7xl mx-auto">
+    <h2 class="text-xl font-semibold mb-4">Your Favorite Movies</h2>
+
+    <!-- Movies container -->
+    <div id="favoritesContainer" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+  </script>
+
+  <script src="./assets/js/favorites.js"></script>
+</body>
+</html>

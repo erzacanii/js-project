@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | OZAFLIX</title>
+    <link rel="icon" href="./assets/img/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+</head>
+<body class="bg-green-200">
+<!--Header-->
+  <header class="bg-green-800 text-white">
+  <nav class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+
+    <!--Logo-->
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="./assets/img/ozaflix-logo.png" alt="OZAFLIX" class="w-22 h-20 rounded">
+      <span class="text-l font-bold text-red-500">OZAFLIX</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul id="desktopMenu" class="hidden md:flex gap-6 text-sm items-center">
+      <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
+      <li><a href="movies.html" class="hover:text-gray-300">Movies</a></li>
+      <li><a href="favorites.html" class="hover:text-gray-300">Favorites</a></li>
+      <li><a href="watchlist.html" class="hover:text-gray-300">Watchlist</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="ai.html" class="hover:text-gray-300">AI</a></li>
+      <!-- User info -->
+      <li id="userInfoDesktop" class="hidden gap-2 items-center">
+        <span id="userNameDesktop" class="font-semibold"></span>
+        <button id="logoutBtnDesktop" class="px-3 py-1 bg-red-500 rounded text-white">Logout</button>
+      </li>
+      <!-- Login/Register if not logged in -->
+      <li id="authLinksDesktop">
+        <a href="login.html" class="px-3 py-1 bg-yellow-500 rounded text-black">Login</a>
+        <a href="register.html" class="px-3 py-1 bg-blue-500 rounded text-white">Register</a>
+      </li>
+    </ul>
+
+    <!-- Mobile Hamburger Button -->
+    <button id="menuBtn" class="md:hidden text-2xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-black border-t border-gray-700">
+    <ul class="flex flex-col p-4 gap-4 text-white">
+      <li><a href="index.html" class="hover:underline">Home</a></li>
+      <li><a href="movies.html" class="hover:underline">Movies</a></li>
+      <li><a href="favorites.html" class="hover:underline">Favorites</a></li>
+      <li><a href="watchlist.html" class="hover:underline">Watchlist</a></li>
+      <li><a href="profile.html" class="hover:underline">Profile</a></li>
+      <li><a href="ai.html" class="hover:underline">AI</a></li>
+      <!-- User info mobile -->
+      <li id="userInfoMobile" class="hidden flex flex-col gap-2">
+        <span id="userNameMobile" class="font-semibold"></span>
+        <button id="logoutBtnMobile" class="px-3 py-1 bg-red-500 rounded text-white">Logout</button>
+      </li>
+      <!-- Login/Register mobile -->
+      <li id="authLinksMobile">
+        <a href="login.html" class="px-3 py-1 bg-yellow-500 rounded text-black">Login</a>
+        <a href="register.html" class="px-3 py-1 bg-blue-500 rounded text-white">Register</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+
+  <!-- Main -->
+   <main class="p-4 max-w-7xl mx-auto">
+  <h2 class="text-xl font-semibold mb-4">Popular Movies</h2>
+
+  <!-- Search bar -->
+  <div class="flex justify-center mb-6">
+    <input type="text" id="searchInput" placeholder="Search movies..." class="border rounded p-2 w-2/3 md:w-1/3">
+    <button id="searchBtn" class="ml-2 bg-blue-500 text-white px-4 rounded">Search</button>
+  </div>
+
+  <div id="moviesContainer" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+</main>
+
+
+
+  <!-- Scripts -->
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+  </script>
+
+  <script src="./assets/js/home.js"></script>
+</body>
+</html>
