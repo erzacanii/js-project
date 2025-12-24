@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ozaflix | AI Assistant</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" href="./assets/img/favicon.png" />
+    
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<!--Header-->
+  <header class="bg-green-800 text-white">
+  <nav class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+
+    <!--Logo-->
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="./assets/img/ozaflix-logo.png" alt="OZAFLIX" class="w-22 h-20 rounded">
+      <span class="text-l font-bold text-red-500">OZAFLIX</span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul id="desktopMenu" class="hidden md:flex gap-6 text-sm items-center">
+      <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
+      <li><a href="movies.html" class="hover:text-gray-300">Movies</a></li>
+      <li><a href="favorites.html" class="hover:text-gray-300">Favorites</a></li>
+      <li><a href="watchlist.html" class="hover:text-gray-300">Watchlist</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="ai.html" class="hover:text-gray-300">AI</a></li>
+      <!-- User info -->
+      <li id="userInfoDesktop" class="hidden gap-2 items-center">
+        <span id="userNameDesktop" class="font-semibold"></span>
+        <button id="logoutBtnDesktop" class="px-3 py-1 bg-red-500 rounded text-white">Logout</button>
+      </li>
+    </ul>
+
+    <!-- Mobile Hamburger Button -->
+    <button id="menuBtn" class="md:hidden text-2xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-black border-t border-gray-700">
+    <ul class="flex flex-col p-4 gap-4 text-white">
+      <li><a href="index.html" class="hover:underline">Home</a></li>
+      <li><a href="movies.html" class="hover:underline">Movies</a></li>
+      <li><a href="favorites.html" class="hover:underline">Favorites</a></li>
+      <li><a href="watchlist.html" class="hover:underline">Watchlist</a></li>
+      <li><a href="profile.html" class="hover:underline">Profile</a></li>
+      <li><a href="ai.html" class="hover:underline">AI</a></li>
+      <!-- User info mobile -->
+      <li id="userInfoMobile" class="hidden flex flex-col gap-2">
+        <span id="userNameMobile" class="font-semibold"></span>
+        <button id="logoutBtnMobile" class="px-3 py-1 bg-red-500 rounded text-white">Logout</button>
+      </li>
+    </ul>
+  </div>
+</header>
+
+    <!-- AI Section -->
+    <section class="container mx-auto px-6 py-10">
+        <h1 class="text-2xl font-bold text-green-500 mb-4 flex justify-center">Ozaflix AI Assistant</h1>
+
+        <textarea id="aiPrompt" placeholder="Ask about movies, actors, or get recommendations…" class="w-full h-[120px] p-4 border rounded-md focus:outline-none focus:ring"
+        ></textarea>
+
+        <div id="aiResponse" class="mt-6 bg-white text-2xl text-black p-6 rounded-md shadow prose max-w-none"
+        ></div>
+    </section>
+
+    <!-- Processing overlay -->
+    <div
+        id="processing"
+        class="hidden fixed inset-0 bg-black/70 text-white z-50"
+    >
+        <div class="w-full h-full flex flex-col items-center justify-center gap-3">
+            <i class="fa-solid fa-spinner text-3xl animate-spin"></i>
+            <p class="text-lg">Processing…</p>
+        </div>
+    </div>
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+});
+
+</script>
+
+    <!-- Main script -->
+    <script type="module" src="./assets/js/ai.js"></script>
+</body>
+</html>
